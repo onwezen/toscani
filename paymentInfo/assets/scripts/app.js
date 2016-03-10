@@ -409,7 +409,7 @@
 						.find("." + opts.cardExpirationClass)
 							.inputmask({
 								mask: "m/q",
-								clearIncomplete: true,
+								clearIncomplete: false,
 								oncomplete: helpers.expirationComplete
 							})
 							.addClass("hide")
