@@ -407,11 +407,7 @@
 							.before("<span class='" + opts.cardImageClass + "'></span>")
 						.end()
 						.find("." + opts.cardExpirationClass)
-							.inputmask({
-								mask: "m/q",
-								clearIncomplete: true,
-								oncomplete: helpers.expirationComplete
-							})
+
 							.addClass("hide")
 						.end()
 						.find("." + opts.cardCvvClass)
