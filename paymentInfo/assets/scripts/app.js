@@ -240,11 +240,25 @@
 			// satisfied. We trigger an animation for CVV card, wait for it to finish, and then
 			// focus on the CVV field.
 
+
 			expirationComplete: function () {
 
 				$("." + opts.cardImageClass).addClass("cvv2");
 
+				$("." + opts.cardExpirationClass)
+					.addClass("full")
+					.unbind("keydown blur")
+					.bind("keydown", function (e) {
+						if (e.keyCode === 8 && $(this).val() === "") {
+							$(this).removeClass("full");
+							if (window.navigator.standalone || !Modernizr.touch) {
+								$("." + opts.cardNumberClass).focus();
 
+								// Update instruction message
+								helpers.updateInstruction(opts.messageEnterCardNumber);
+							}
+						}
+					});
 
 				if (window.navigator.standalone || !Modernizr.touch) {
 					setTimeout(function () {
@@ -259,7 +273,6 @@
 				helpers.updateInstruction(opts.messageCVV);
 
 			},
-
 			// This function is fired when the mask for CVV field is satisfied. We animate
 			// the credit card back from the CVV card image to the appropriate card type.
 			// We wait for the animation to finish and then focus on the zip field.
