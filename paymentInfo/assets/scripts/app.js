@@ -244,20 +244,7 @@
 
 				$("." + opts.cardImageClass).addClass("cvv2");
 
-				$("." + opts.cardExpirationClass)
-					.addClass("full")
-					.unbind("keydown blur")
-					.bind("keydown", function (e) {
-						if (e.keyCode === 8 && $(this).val() === "") {
-							$(this).removeClass("full");
-							if (window.navigator.standalone || !Modernizr.touch) {
-								$("." + opts.cardNumberClass).focus();
 
-								// Update instruction message
-								helpers.updateInstruction(opts.messageEnterCardNumber);
-							}
-						}
-					});
 
 				if (window.navigator.standalone || !Modernizr.touch) {
 					setTimeout(function () {
