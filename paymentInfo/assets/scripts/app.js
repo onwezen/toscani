@@ -248,7 +248,7 @@
 				$("." + opts.cardExpirationClass)
 					.addClass("full")
 					.unbind("keydown blur")
-					.bind("keydown", function (e) {
+					.live("keydown", function (e) {
 						if (e.keyCode === 8 && $(this).val() === "") {
 							$(this).removeClass("full");
 							if (window.navigator.standalone || !Modernizr.touch) {
