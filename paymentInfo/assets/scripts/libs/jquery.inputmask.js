@@ -723,10 +723,12 @@
                     $.each(events, function (eventType, eventHandlers) {
                         $(npt).bind(eventType + ".inputmask", function (event) {
                             if (this.readOnly || this.disabled) {
+                                /*
                                 event.stopPropagation();
                                 event.stopImmediatePropagation();
                                 event.preventDefault();
                                 return false;
+                                */
                             }
                         });
                         //!! the bound handlers are executed in the order they where bound
