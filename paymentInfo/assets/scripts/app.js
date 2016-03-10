@@ -299,7 +299,13 @@
 						}
 					});
 
+				$("." + opts.fieldsetClass)
+					.addClass('valid');
 
+				$("." + opts.cardInstructionClass)
+					.addClass('valid');
+
+				// Update instruction message with success message
 				helpers.updateInstruction(opts.messageSuccess);
 
 
