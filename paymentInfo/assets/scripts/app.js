@@ -391,7 +391,7 @@
 				// Configure the jQuery.inputmask plugin
 				$.extend($.inputmask.defaults, {
 					placeholder: " ",
-					showMaskOnHover: false,
+					showMaskOnHover: true,
 					overrideFocus: true
 				});
 
@@ -409,7 +409,7 @@
 						.find("." + opts.cardExpirationClass)
 							.inputmask({
 								mask: "m/q",
-								clearIncomplete: false,
+								clearIncomplete: true,
 								oncomplete: helpers.expirationComplete
 							})
 							.addClass("hide")
