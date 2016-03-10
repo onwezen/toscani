@@ -299,47 +299,13 @@
 						}
 					});
 
-				if (window.navigator.standalone || !Modernizr.touch) {
-					// Focus on the credit card expiration input.
-					$("." + opts.cardZipClass).focus();
-
-					// Update instruction message
-					helpers.updateInstruction(opts.messageZip);
-				}
 
 				
 
 
 			},
 
-			zipComplete: function () {
-
-				$("." + opts.cardZipClass)
-					.addClass("full")
-					.unbind("keydown blur")
-					.bind("keydown", function (e) {
-						if (e.keyCode === 8 && $(this).val() === "") {
-							$(this).removeClass("full");
-							if (window.navigator.standalone || !Modernizr.touch) {
-								$("." + opts.cardCvvClass).focus();
-
-								// Update instruction message
-								helpers.updateInstruction(opts.messageCVV);
-							}
-						}
-					})
-					.inputmask({ mask: "99999" });
-
-				$("." + opts.fieldsetClass)
-					.addClass('valid');
-
-				$("." + opts.cardInstructionClass)
-					.addClass('valid');
-
-				// Update instruction message with success message
-				helpers.updateInstruction(opts.messageSuccess);
-
-			},
+		
 
 			// This function allows us to edit the credit card number once it's been entered.
 			beginCreditCard: function (element) {
@@ -458,13 +424,6 @@
 								$("." + opts.cardImageClass).removeClass("cvv2");
 							})
 						.end()
-						.find("." + opts.cardZipClass)
-							.inputmask({
-								mask: "99999",
-								oncomplete: helpers.zipComplete
-							})
-							.addClass("hide")
-						.end();
 
 						if(opts.cardInstruction) {
 							$(this).
@@ -502,7 +461,6 @@
 		cardImageClass: "card-image",
 		cardCvvClass: "card-cvv",
 		cardExpirationClass: "card-expiration",
-		cardZipClass: "card-zip",
 		cardNumberClass: "card-number",
 		cardInstruction : true,
 		cardInstructionClass: "card-instruction",
@@ -515,7 +473,6 @@
 		messageExpirationError : "Please enter a valid month and year",
 		messageCVV : "Please enter the three-digit CVV number found on the back of your card",
 		messageCVVAmEx : "Please enter your four-digit CVV number on the front of your card",
-		messageZip : "Please enter your billing zip code",
 		messageSuccess : "Hooray! You've successfully filled out your credit card information."
 	};
 
