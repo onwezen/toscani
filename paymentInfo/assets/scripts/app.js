@@ -241,7 +241,7 @@
 			// focus on the CVV field.
 
 
-			expirationComplete: function () {
+			/*expirationComplete: function () {
 
 				$("." + opts.cardImageClass).addClass("cvv2");
 
@@ -270,7 +270,7 @@
 				// Update instruction message
 				helpers.updateInstruction(opts.messageCVV);
 
-			},
+			},*/
 			// This function is fired when the mask for CVV field is satisfied. We animate
 			// the credit card back from the CVV card image to the appropriate card type.
 			// We wait for the animation to finish and then focus on the zip field.
